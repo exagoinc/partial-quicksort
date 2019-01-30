@@ -1,6 +1,6 @@
-private static PartialQuickSort<T>(a: T[], n: number, comparator: (a: T, b: T) => number): T[]
-private static PartialQuickSort<T>(a: T[], n: number, comparator: (a: T, b: T) => number, low: number, high: number): T[]
-private static PartialQuickSort<T>(a: T[], n: number, comparator: (a: T, b: T) => number, low: number = 0, high: number = a.length - 1): T[]
+function partialQuickSort<T>(a: T[], n: number, comparator: (a: T, b: T) => number): T[]
+function partialQuickSort<T>(a: T[], n: number, comparator: (a: T, b: T) => number, low: number, high: number): T[]
+function partialQuickSort<T>(a: T[], n: number, comparator: (a: T, b: T) => number, low: number = 0, high: number = a.length - 1): T[]
 {
 	const partition = (a: T[], low: number, high: number) =>
 	{
@@ -29,10 +29,10 @@ private static PartialQuickSort<T>(a: T[], n: number, comparator: (a: T, b: T) =
 	if (low < high)
 	{
 		const partitionIndex = partition(a, low, high);
-		this.PartialQuickSort(a, n, comparator, low, partitionIndex - 1);
+		partialQuickSort(a, n, comparator, low, partitionIndex - 1);
 
 		if (partitionIndex < n-1)
-			this.PartialQuickSort(a, n, comparator, partitionIndex + 1, high);
+			partialQuickSort(a, n, comparator, partitionIndex + 1, high);
 	}
 
 	return a;
